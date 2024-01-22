@@ -17,7 +17,7 @@ public class hw2 {
         for (int i = 1; i <= 10; i++) {
             sumProduct *= i;
         }
-        System.out.println("連乘積: "+sumProduct);
+        System.out.println("連乘積: " + sumProduct);
         System.out.println("==========================================");
 
         // TODO 請設計一隻Java程式,計算1~10的連乘積 (1*2*3*...*10) (用while迴圈)
@@ -27,7 +27,7 @@ public class hw2 {
             sumProduct *= i;
             i++;
         }
-        System.out.println("連乘積: "+sumProduct);
+        System.out.println("連乘積: " + sumProduct);
         System.out.println("==========================================");
 
         // TODO 請設計一隻Java程式,輸出結果為以下:
