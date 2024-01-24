@@ -23,11 +23,13 @@ public class Hw3_2 {
             if (guess == ans) {
                 System.out.println("答對了! 答案是" + ans);
                 break;
-            } else if (guess > ans){
-                System.out.println("猜錯摟~答案比較小");
-            }else {
-                System.out.println("猜錯摟~答案比較大");
+            } else if (guess > ans) {
+                System.out.println("猜錯摟~答案比你猜的還小");
+            } else {
+                System.out.println("猜錯摟~答案比你猜的還大");
             }
         }
+
+        sc.close();
     }
 }

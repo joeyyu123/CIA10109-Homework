@@ -15,9 +15,15 @@ public class Hw3_3 {
 
         int count = 0;
 
-        System.out.println("請輸入你討厭哪個數字(1~9)");
-
+        System.out.println("請輸入你討厭哪個數字 (1~9)");
         int hateNum = sc.nextInt();
+
+        // 確保使用者輸入的是1到9之間的數字
+        if (hateNum < 1 || hateNum > 9) {
+            System.out.println("請輸入1到9之間的數字");
+            return;
+        }
+
         for (int j = 1; j <= 49; j++) {
             if (j % 10 == hateNum || j / 10 == hateNum)
                 continue;
@@ -36,5 +42,7 @@ public class Hw3_3 {
             System.out.print(list.get(i) + " ");
         }
         System.out.println();
+
+        sc.close();
     }
 }

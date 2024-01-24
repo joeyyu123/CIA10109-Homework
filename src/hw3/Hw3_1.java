@@ -28,10 +28,12 @@ public class Hw3_1 {
             System.out.println("正三角形");
         } else if (data[0] == data[1] || data[0] == data[2] || data[1] == data[2]) {
             System.out.println("等腰三角形");
-        } else if (Math.pow(data[0],2) + Math.pow(data[1],2) == Math.pow(data[2],2) ) {
+        } else if (Math.pow(data[0], 2) + Math.pow(data[1], 2) == Math.pow(data[2], 2)) {
             System.out.println("直角三角形");
         } else {
             System.out.println("其他三角形");
         }
+
+        sc.close();
     }
 }
