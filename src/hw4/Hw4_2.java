@@ -15,7 +15,7 @@ public class Hw4_2 {
         StringBuilder sb = new StringBuilder();
         sb.append(s);
         sb.reverse();
-        System.out.println(sb.toString());
+        System.out.println(sb);
 
     }
 }
