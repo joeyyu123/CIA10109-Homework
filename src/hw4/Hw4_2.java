@@ -10,10 +10,9 @@ import java.util.Scanner;
 public class Hw4_2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
-
         StringBuilder sb = new StringBuilder();
-        sb.append(s);
+
+        sb.append(sc.nextLine());
         sb.reverse();
         System.out.println(sb);
 

@@ -1,5 +1,7 @@
 package hw4;
 
+import java.util.Arrays;
+
 /**
  * 有個字串陣列如下 (八大行星)：
  * {"mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"}
@@ -11,22 +13,27 @@ public class Hw4_3 {
 
 
         String[] planets = new String[]{"mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"};
-        Character[] vowels = new Character[]{'a', 'e', 'i', 'o', 'u'};
+//        Character[] vowels = new Character[]{'a', 'e', 'i', 'o', 'u'};
 
         int count = 0;
 
 
         // 判斷單字中的每個字母是否為母音
+//        for (String planet : planets) {
+//            for (char c : planet.toCharArray()) {
+//                for (Character vowel : vowels) {
+//                    if (c == vowel) {
+//                        count++;
+//                    }
+//                }
+//            }
+//        }
+
+        // Better Way
         for (String planet : planets) {
-            for (char c : planet.toCharArray()) {
-                for (Character vowel : vowels) {
-                    if (c == vowel) {
-                        count++;
-                    }
-                }
-            }
+            count += planet.replaceAll("[^aeiou]", "").length();
         }
-        System.out.println("總共"+count+"個母音");
+        System.out.println("總共" + count + "個母音");
 
     }
 }

@@ -1,5 +1,7 @@
 package hw4;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -12,22 +14,34 @@ import java.util.Scanner;
  * 員工編號: 25 19 27 共 3 人!」
  * (提示：Scanner，二維陣列) map?
  */
-
-public class Hw4_4 {
+public class Hw4_4_method2 {
     public static void main(String[] args) {
-        int[][] staffs = new int[][]{{25, 2500}, {32, 800}, {8, 500}, {19, 1000}, {27, 1200}};
-        int count = 0;
+        // 存放員工資料
+        Map<Integer, Integer> staffs = new HashMap<>();
+        staffs.put(25, 2500);
+        staffs.put(32, 800);
+        staffs.put(8, 500);
+        staffs.put(19, 1000);
+        staffs.put(27, 1200);
+
+        // 輸入要借的金額
         Scanner sc = new Scanner(System.in);
-        System.out.println("請輸入要借多少錢");
+        System.out.print("請輸入要借多少錢: ");
         int borrow = sc.nextInt();
-        System.out.print("員工編號: ");
-        for (int[] staff : staffs) {
-            if (staff[1] >= borrow) {
-                System.out.print(staff[0] + " ");
+
+        int count = 0;
+
+
+        String staffIds = "";
+
+        for (Map.Entry<Integer, Integer> entry : staffs.entrySet()) {
+            if (entry.getValue() >= borrow) {
                 count++;
+                staffIds += entry.getKey()+ " ";
             }
         }
-        System.out.println();
+
+        System.out.println("員工編號:" + staffIds);
         System.out.println("共 " + count + " 人");
     }
 }
