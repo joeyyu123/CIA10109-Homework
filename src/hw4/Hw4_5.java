@@ -13,76 +13,48 @@ public class Hw4_5 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("請輸入年、月、日：");
         int year = sc.nextInt();
         int month = sc.nextInt();
         int day = sc.nextInt();
-        boolean leapYear = false;
+        
+        if (!isValidDate(year, month, day)) {
+            System.out.println("請輸入正確的日期!");
+            sc.close();
+            return;
+        }
+
+        boolean leapYear = isLeapYear(year);
         int[] monthDays = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        int days = 0;
-
-        // 判斷日期輸入是否正確
-        switch (month) {
-            case 1, 3, 5, 7, 8, 10, 12:
-                if (day > 31) {
-                    System.out.println("請輸入正確的日期!");
-                    return;
-                }
-            case 2:
-                if (day > 29) {
-                    System.out.println("請輸入正確的日期!");
-                    return;
-                }
-            case 4, 6, 9, 11:
-                if (day > 30) {
-                    System.out.println("請輸入正確的日期!");
-                    return;
-                }
+        
+        if (leapYear) {
+            monthDays[1] = 29;
         }
 
-        // 判斷是否為閏年
-        if (year % 4 == 0) {
-            leapYear = true;
-        }
-        if (year % 100 == 0) {
-            leapYear = false;
-        }
-        if (year % 400 == 0) {
-            leapYear = true;
-        }
-
-        // 計算天數
-        switch (month) {
-            case (12):
-                days += monthDays[10]; //11
-            case (11):
-                days += monthDays[9]; //10
-            case (10):
-                days += monthDays[8]; //9
-            case (9):
-                days += monthDays[7]; //8
-            case (8):
-                days += monthDays[6]; //7
-            case (7):
-                days += monthDays[5]; //6
-            case (6):
-                days += monthDays[4]; //5
-            case (5):
-                days += monthDays[3]; //4
-            case (4):
-                days += monthDays[2]; //3
-            case (3):
-                days += monthDays[1]; //2
-            case (2):
-                days += monthDays[0]; //1
-            case (1):
-                days += day;
-        }
-        if (leapYear && month > 2) {
-            days++;
-        }
+        int days = calculateDayOfYear(monthDays, month, day);
 
         System.out.println("輸入的日期為該年第" + days + "天");
+        sc.close();
+    }
 
+    private static boolean isValidDate(int year, int month, int day) {
+        if (month < 1 || month > 12) return false;
+        
+        int[] monthDays = {31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        
+        return day > 0 && day <= monthDays[month - 1];
+    }
+
+    private static boolean isLeapYear(int year) {
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+
+    private static int calculateDayOfYear(int[] monthDays, int month, int day) {
+        int days = 0;
+        for (int i = 0; i < month - 1; i++) {
+            days += monthDays[i];
+        }
+        days += day;
+        return days;
     }
 }
-
