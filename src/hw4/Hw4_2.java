@@ -15,6 +15,6 @@ public class Hw4_2 {
         sb.append(sc.nextLine());
         sb.reverse();
         System.out.println(sb);
-
+        sc.close();
     }
 }

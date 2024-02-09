@@ -43,5 +43,6 @@ public class Hw4_4_method2 {
 
         System.out.println("員工編號:" + staffIds);
         System.out.println("共 " + count + " 人");
+        sc.close();
     }
 }

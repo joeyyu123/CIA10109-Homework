@@ -16,6 +16,7 @@ public class Hw4_5_method2 {
         //檢查日期合法性
         if(!validateDate(year, month, day)) {
             System.out.println("日期輸入不正確!");
+            sc.close();
             return;
         }
 
@@ -26,7 +27,7 @@ public class Hw4_5_method2 {
         int dayOfYear = date.getDayOfYear();
 
         System.out.println("輸入日期為當年第"+dayOfYear+"天");
-
+        sc.close();
     }
 
     //日期合法性檢查
@@ -47,6 +48,7 @@ public class Hw4_5_method2 {
                 maxDays = 30; break;
         }
         return day <= maxDays;
+
     }
 
 }

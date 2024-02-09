@@ -1,7 +1,5 @@
 package hw4;
 
-import java.util.Arrays;
-
 /**
  * 有個字串陣列如下 (八大行星)：
  * {"mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"}

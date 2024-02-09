@@ -29,5 +29,6 @@ public class Hw4_4 {
         }
         System.out.println();
         System.out.println("共 " + count + " 人");
+        sc.close();
     }
 }
